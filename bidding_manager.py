@@ -17,7 +17,7 @@ def load_data(year):
     else:
         return pd.DataFrame(columns=[
             "입찰공고번호", "입찰명", "공고일", "마감일", "사업기간", "사업예산", "과업내용", "입찰조건",
-            "기술점수", "가격점수", "참여업체", "업체점수", "투찰금액", "낙찰업체", "개찰자",
+            "기술점수", "가격점수", "참여업체", "업체점수", "투찰금액", "낙찰업체", "담당자",
             "제출방법", "제출지역", "비고", "클레버디 투찰여부"
         ])
 
@@ -84,21 +84,12 @@ if st.button("저장"):
         "업체점수": "",
         "투찰금액": "",
         "낙찰업체": "",
-        "개찰자": "",
+        "담당자": "",
         "제출방법": submit_method,
         "제출지역": submit_location,
         "비고": notes,
         "클레버디 투찰여부": cleverbid_status
     }])
-    import streamlit as st
-
-st.set_page_config(page_title="📑 입찰 관리 시스템", layout="wide")
-
-st.title("📑 입찰 관리 시스템")
-
-st.write("📌 좌측 사이드바에서 원하는 페이지를 선택하세요.")
-
-# ✅ Streamlit 멀티페이지 기능 자동 활성화됨
 
     df = pd.concat([df, new_data], ignore_index=True)
     save_data(df, year)
