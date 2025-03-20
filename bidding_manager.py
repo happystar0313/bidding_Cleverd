@@ -90,7 +90,16 @@ if st.button("저장"):
         "비고": notes,
         "클레버디 투찰여부": cleverbid_status
     }])
-    
+    import streamlit as st
+
+st.set_page_config(page_title="📑 입찰 관리 시스템", layout="wide")
+
+st.title("📑 입찰 관리 시스템")
+
+st.write("📌 좌측 사이드바에서 원하는 페이지를 선택하세요.")
+
+# ✅ Streamlit 멀티페이지 기능 자동 활성화됨
+
     df = pd.concat([df, new_data], ignore_index=True)
     save_data(df, year)
     st.success(f"{year}년 입찰 정보가 저장되었습니다!")
